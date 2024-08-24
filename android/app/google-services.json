@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "688129441156",
+    "project_id": "whitematrix-df247",
+    "storage_bucket": "whitematrix-df247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688129441156:android:e0f736edb55ed0362631d1",
+        "android_client_info": {
+          "package_name": "com.whitematrix.whitematrix_mt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBefDZEZuiukmb6aIppClRHXQVcaZinO8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

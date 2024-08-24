@@ -91,13 +91,13 @@ class RegistrationScreen extends StatelessWidget {
                       controller: phoneNumberController,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.phone,
-                      // validator: (phonenumber) {
-                      //   if (phonenumber!.isEmpty) {
-                      //     return "Enter a valid phone number";
-                      //   } else {
-                      //     return null;
-                      //   }
-                      // },
+                      validator: (phonenumber) {
+                        if (phonenumber!.isEmpty) {
+                          return "Enter a valid phone number";
+                        } else {
+                          return null;
+                        }
+                      },
 
                       decoration: InputDecoration(
                         prefixIcon: Icon(

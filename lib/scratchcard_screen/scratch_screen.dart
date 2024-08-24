@@ -1,61 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:scratcher/scratcher.dart';
+import 'package:whitematrix_mt/core/constants/colors.dart';
+import 'package:whitematrix_mt/core/constants/global_textstyles.dart';
 
-class ScratchCard extends StatelessWidget {
-  final VoidCallback onAddToCart;
+class ScratchCard extends StatefulWidget {
+
+  final Function onAddToCart;
 
   ScratchCard({required this.onAddToCart});
 
   @override
-  Widget build(BuildContext context) {
-    return Scratcher(
-      brushSize: 50,
-      threshold: 50,
-      color: Colors.grey,
-      onThreshold: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Congratulations! You scratched off the card!'),
-          ),
-        );
-      },
-      child: Container(
-        height: 200,
-        width: 300,
-        decoration: BoxDecoration(
+  State<ScratchCard> createState() => _ScratchCardState();
+}
 
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(
-              'https://media.istockphoto.com/id/1204235743/photo/stylish-fashionable-woman-with-orange-round-bag.webp?b=1&s=612x612&w=0&k=20&c=KG95k0zw49LTxC7uxyyKCw88GhaybjhVIxRZjBVbgak=',
-              height: 80,
+class _ScratchCardState extends State<ScratchCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorTheme.secondarycolor,
+      appBar: AppBar(
+        backgroundColor: ColorTheme.secondarycolor,
+        title: Text("SCRATCH ME",style: GlobalTextStyles.mainTittle,),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Scratcher(
+          brushSize: 50,
+          threshold: 30,
+          color: ColorTheme.maincolor,
+          onThreshold: () {
+            Future.delayed(Duration(milliseconds: 300), () {
+              widget.onAddToCart();
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: ColorTheme.maincolor,
+                  width: 3,
+                ),
+              image: DecorationImage(image: AssetImage("assets/images/bgpic.png"),fit: BoxFit.fill)
             ),
-            Text(
-              "HAND BAG",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            height: 400,
+            width: 300,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Congratulations! You have won a free gift",
+                  style:GlobalTextStyles.subTitle3,
+                  // style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
-            Text(
-              "₹0.00",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                onAddToCart();
-              },
-              child: Text("Add to Cart"),
-            ),
-          ],
+          ),
         ),
       ),
     );

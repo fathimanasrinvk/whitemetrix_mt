@@ -1,15 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:whitematrix_mt/core/constants/colors.dart';
-import 'package:whitematrix_mt/presentation/product_screen/view/product_screen.dart';
-void main(){
-  runApp(MaterialApp(home: Splash(),));
-}
 
+import '../../signup_screen/view/signup_screen.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({Key? key }):super(key:key);
+  const Splash({Key? key}) : super(key: key);
 
   @override
   State<Splash> createState() => _SplashState();
@@ -17,23 +12,36 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
-  void initState(){
+  void initState() {
+    super.initState();
     Timer(Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomeScreen())
+          MaterialPageRoute(builder: (context) => RegistrationScreen())
           );
     });
   }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-      Positioned.fill(
-      child: Image.asset(
-        'assets/images/splash_pic.png',
-        fit: BoxFit.fill, // Adjust how the image should be resized to cover the screen
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/splash_pic.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+            top: 270,
+            left: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/HerMac__2_-removebg-preview.png',
+            ),
+          ),
+        ],
       ),
-    ),
-   ] ));
+    );
   }
 }

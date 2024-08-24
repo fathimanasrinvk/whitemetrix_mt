@@ -82,7 +82,6 @@ class LoginScreen extends StatelessWidget {
                         await FirebaseAuth.instance.verifyPhoneNumber(
                           phoneNumber: phoneController.text,
                           verificationCompleted: (phoneAuthCredential) {
-                            // Auto verification succeeded, sign in directly
                             FirebaseAuth.instance
                                 .signInWithCredential(phoneAuthCredential);
                             Navigator.pushAndRemoveUntil(

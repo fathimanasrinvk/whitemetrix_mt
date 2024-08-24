@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -13,7 +12,6 @@ class PdfService {
     required DateTime purchaseDate,
   }) async {
     final pdf = pw.Document();
-
     pdf.addPage(pw.Page(
       build: (pw.Context context) {
         return pw.Column(
@@ -40,7 +38,6 @@ class PdfService {
         );
       },
     ));
-
     return pdf;
   }
 

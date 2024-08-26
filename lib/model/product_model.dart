@@ -3,16 +3,16 @@ class Product {
   final String name;
   final double price;
   final String imageUrl;
-  final String description; // Add this line
-  int quantity; // Make sure this is mutable
+  final String description;
+  int quantity;
 
   Product({
     required this.id,
     required this.name,
     required this.price,
     required this.imageUrl,
-    required this.description, // And this line
-    this.quantity = 1, // Initialize with a default quantity of 1
+    required this.description,
+    this.quantity = 1,
   });
 
 }
